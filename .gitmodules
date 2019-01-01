@@ -1,0 +1,9 @@
+[submodule "ndn-lite"]
+	path = ndn-lite
+	url = git@github.com:Zhiyi-Zhang/ndn_standalone.git
+[submodule "examples/ndn-lite-application-for-nRF52840-BLE_version"]
+	path = examples/ndn-lite-application-for-nRF52840-BLE_version
+	url = https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version.git
+[submodule "examples/NDN-IoT-Android"]
+	path = examples/NDN-IoT-Android
+	url = https://github.com/gujianxiao/NDN-IoT-Android

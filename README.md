@@ -16,11 +16,9 @@ Here follows a step-by-step instruction on how to compile the whole package and 
 ## Prerequisites
 1) One or more nRF52840 boards
 2) An Android phone
-3) Make sure that Segger Embedded Studio (http://infocenter.nordicsemi.com/pdf/getting_started_ses.pdf) and Android Studio (https://developer.android.com/studio/) are installed and properly functioning.
+3) Make sure that Segger Embedded Studio (http://infocenter.nordicsemi.com/pdf/getting_started_ses.pdf) and Android Studio (https://developer.android.com/studio/) are installed and properly functioning on the machine you would like to use for development.
   
-## Step 1) Download and compile NDN-Lite
-
-
+## Step 1) Download and compile NDN-Lite into a Segger Embedded Studio project
 
 ### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project (a guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing)
       

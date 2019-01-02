@@ -1,4 +1,4 @@
-This project aims at providing a m-in-one package for those who wants to try a new networking protocol, the Named Data Networking, with their IoT apps on constrained devices, e.g., Nordic nRF58240 boards. Here "m" stands for the following 4 parts, from bottom to top: 
+This project aims at providing a m-in-one package for those who want to try a new networking protocol, the Named Data Networking (NDN), with their IoT apps on constrained devices, e.g., Nordic nRF58240 boards. Here "m" stands for the following 4 parts, from bottom to top: 
 
 1) communication adapation layer, which handels different communicate mediums with the support from operating system (like RIOT), software development kit (like Nordic SDK), or even the raw device drivers
 

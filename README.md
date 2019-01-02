@@ -1,3 +1,6 @@
+# NDN IoT Package 
+## A Example over Nordic SDK
+
 This project aims at providing a m-in-one package for those who want to try a new networking protocol, the Named Data Networking (NDN), with their IoT apps on constrained devices, e.g., Nordic nRF58240 boards. Here "m" stands for the following 4 parts, from bottom to top: 
 
 1) communication adapation layer, which handels different communicate mediums with the support from operating system (like RIOT), software development kit (like Nordic SDK), or even the raw device drivers
@@ -8,7 +11,8 @@ This project aims at providing a m-in-one package for those who want to try a ne
 
 4) an example application, where two parties are invovled: a network controller (runs on a android phone) and two devices (Nordic nRF58240 boards).
 
-The first 3 parts together make the NDN-Lite library, while the example application, as a reference, shows how to develop a simple application with the NDN-Lite library. Details of NDN-Lite library and the example application can be found in: 
+The first 3 parts together make the NDN-Lite library, while the example application, as a reference, shows how to develop a simple application with the NDN-Lite library. 
+Details of NDN-Lite library can be found in: https://github.com/named-data-iot/ndn-lite/wiki
 
 ## Installation
 Here follows a step-by-step instruction on how to compile the whole package and how to run the example application with the NDN-Lite library. As currently the library only contains full support for the nRF52840 board, the following instructions will be based on using ndn-lite and the example applications with the recommended IDE for nRF52840 board development, Segger Embedded Studio. It will also assume that Android Studio is used for Android development.
@@ -20,7 +24,8 @@ Here follows a step-by-step instruction on how to compile the whole package and 
   
 ## Step 1) Download and compile NDN-Lite into a Segger Embedded Studio project
 
-### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project (a guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing)
+### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project
+A guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing
       
 ### b) Import the NDN-Lite library into your Segger Embedded Studio Project and Compile it
 

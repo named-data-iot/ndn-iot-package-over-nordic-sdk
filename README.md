@@ -10,41 +10,38 @@ This project aims at providing a m-in-one package for those who want to try a ne
 
 The first 3 parts together make the NDN-Lite library, while the example application, as a reference, shows how to develop a simple application with the NDN-Lite library. Details of NDN-Lite library and the example application can be found in: 
 
-
+## Installation
 Here follows a step-by-step instruction on how to compile the whole package and how to run the example application with the NDN-Lite library. As currently the library only contains full support for the nRF52840 board, the following instructions will be based on using ndn-lite and the example applications with the recommended IDE for nRF52840 board development, Segger Embedded Studio. It will also assume that Android Studio is used for Android development.
 
-Things you will need:
-  1) One or more nRF52840 boards
-  2) An Android phone
+## Prerequisites
+1) One or more nRF52840 boards
+2) An Android phone
+3) Make sure that Segger Embedded Studio (http://infocenter.nordicsemi.com/pdf/getting_started_ses.pdf) and Android Studio (https://developer.android.com/studio/) are installed and properly functioning.
   
-Step 1) Install Segger Embedded Studio
+## Step 1) Download and compile NDN-Lite
 
-Segger Embedded Studio is the recommended IDE for development on the nRF52840; you can find detailed instructions for installing that here: 
-    http://infocenter.nordicsemi.com/pdf/getting_started_ses.pdf
-    
-You can also find a guide for starting a new Segger Embedded Studio project here:
-    https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing
-    
-Step 2) Install Android Studio
 
-To do development for your Android phone, you can use Android Studio. You can find installation instructions for that here: 
-    https://developer.android.com/studio/
-    
-Step 3) Download the example applications
+
+### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project (a guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing)
+      
+### b) Import the NDN-Lite library into your Segger Embedded Studio Project and Compile it
+
+First you will need to download NDN-Lite; you can do so from here:
+    https://github.com/named-data-iot/ndn-lite
+
+Whether you choose to start a new Segger Embedded Studio project or start from the example (which can be downloaded here https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version), you will have to import the NDN-Lite library into your project in order to compile it. The guide for starting a new Segger Embedded Studio project linked in part a) above contains help for accomplishing this (particularly steps 3, 4, and the "Extra Advice" section).
+      
+## Step 2) Download the example applications
 
 There is a pair of example applications meant to demonstrate how the NDN-Lite library can be used for Android to board and board to board communication.
-    
+
+### a) Download the Android example application
+
 You can find the Android example application and instructions for installing it here:
     https://github.com/gujianxiao/NDN-IoT-Android
     
+### b) Download the nRF52840 example application
+    
 You can find the nRF52840 example application and instructions for installing it here:
     https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version
-    
-Step 4) Download the NDN-Lite library
 
-You will need to download the NDN-Lite library separately from the example application.
-
-You can download the NDN-Lite library from here:
-    https://github.com/named-data-iot/ndn-lite
-
-In order to add the NDN-Lite library to the Segger Embedded Studio example project downloaded in Step 3), you can follow the guide to starting a new Segger Embedded Studio project linked in Step 1) (steps 3, 4, and the "Extra Advice" section of that document will be particularly helpful in getting the NDN-Lite library to compile within your Segger Embedded Studio project).

@@ -21,28 +21,28 @@ Here follows a step-by-step instruction on how to compile the whole package and 
 2) An Android phone
 3) Make sure that Segger Embedded Studio (http://infocenter.nordicsemi.com/pdf/getting_started_ses.pdf) and Android Studio (https://developer.android.com/studio/) are installed and properly functioning on the machine you would like to use for development.
   
-## Step 1) Download and compile NDN-Lite into a Segger Embedded Studio project
+### Step One: Download and compile NDN-Lite into a Segger Embedded Studio project
 
-### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project
+#### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project
 A guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing
       
-### b) Import the NDN-Lite library into your Segger Embedded Studio Project and Compile it
+#### b) Import the NDN-Lite library into your Segger Embedded Studio Project and Compile it
 
 First you will need to download NDN-Lite; you can do so from here:
     https://github.com/named-data-iot/ndn-lite
 
 Whether you choose to start a new Segger Embedded Studio project or start from the example (which can be downloaded here https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version), you will have to import the NDN-Lite library into your project in order to compile it. The guide for starting a new Segger Embedded Studio project linked in part a) above contains help for accomplishing this (particularly steps 3, 4, and the "Extra Advice" section).
       
-## Step 2) Download the example applications
+### Step Two: Download the example applications
 
 There is a pair of example applications meant to demonstrate how the NDN-Lite library can be used for Android to board and board to board communication.
 
-### a) Download the Android example application
+#### a) Download the Android example application
 
 You can find the Android example application and instructions for installing / using it here:
     https://github.com/gujianxiao/NDN-IoT-Android
     
-### b) Download the nRF52840 example application
+#### b) Download the nRF52840 example application
     
 You can find the nRF52840 example application and instructions for installing / using it here:
     https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version

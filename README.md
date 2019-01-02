@@ -1,5 +1,4 @@
 # NDN IoT Package 
-## A Example over Nordic SDK
 
 This project aims at providing a m-in-one package for those who want to try a new networking protocol, the Named Data Networking (NDN), with their IoT apps on constrained devices, e.g., Nordic nRF58240 boards. Here "m" stands for the following 4 parts, from bottom to top: 
 

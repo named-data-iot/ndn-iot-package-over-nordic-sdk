@@ -35,11 +35,11 @@ There is a pair of example applications meant to demonstrate how the NDN-Lite li
 
 ### a) Download the Android example application
 
-You can find the Android example application and instructions for installing it here:
+You can find the Android example application and instructions for installing / using it here:
     https://github.com/gujianxiao/NDN-IoT-Android
     
 ### b) Download the nRF52840 example application
     
-You can find the nRF52840 example application and instructions for installing it here:
+You can find the nRF52840 example application and instructions for installing / using it here:
     https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version
 

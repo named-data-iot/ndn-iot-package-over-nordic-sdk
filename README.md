@@ -2,9 +2,9 @@
 
 This project aims at providing a m-in-one package for those who want to try a new networking protocol, the Named Data Networking (NDN), with their IoT apps on constrained devices, e.g., Nordic nRF58240 boards. Here "m" stands for the following 4 parts, from bottom to top: 
 
-1) communication adapation layer, which handels different communicate mediums with the support from operating system (like RIOT), software development kit (like Nordic SDK), or even the raw device drivers
+1) communication adapation layer, which handles different communication mediums with the support from operating system (like RIOT), software development kit (like Nordic SDK), or even the raw device drivers.
 
-2) basic NDN layer, which offers basic networking layer functionalities, including the basic security support, following the latest NDN specification
+2) basic NDN layer, which offers basic networking layer functionalities, including the basic security support, following the latest NDN specification.
 
 3) application support layer, which includes some useful buliding blocks to NDN applications, such as security bootstraping, service discover as well as access control.
 

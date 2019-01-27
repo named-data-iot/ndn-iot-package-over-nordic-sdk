@@ -7,3 +7,6 @@
 [submodule "examples/NDN-IoT-Android"]
 	path = examples/NDN-IoT-Android
 	url = https://github.com/gujianxiao/NDN-IoT-Android
+[submodule "examples/ndn-lite-application-for-nRF52840-802154_version"]
+	path = examples/ndn-lite-application-for-nRF52840-802154_version
+	url = https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-802154_version

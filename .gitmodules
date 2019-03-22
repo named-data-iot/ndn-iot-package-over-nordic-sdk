@@ -1,6 +1,3 @@
-[submodule "ndn-lite"]
-	path = ndn-lite
-	url = https://github.com/named-data-iot/ndn-lite
 [submodule "examples/ndn-lite-application-for-nRF52840-BLE_version"]
 	path = examples/ndn-lite-application-for-nRF52840-BLE_version
 	url = https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version.git
@@ -10,3 +7,6 @@
 [submodule "examples/ndn-lite-application-for-nRF52840-802154_version"]
 	path = examples/ndn-lite-application-for-nRF52840-802154_version
 	url = https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-802154_version
+[submodule "ndn-lite"]
+	path = ndn-lite
+	url = https://github.com/named-data-iot/ndn-lite

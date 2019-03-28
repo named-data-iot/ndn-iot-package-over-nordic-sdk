@@ -24,7 +24,7 @@ Here follows a step-by-step instruction on how to compile the whole package and 
 ### Step One: Download and compile NDN-Lite into a Segger Embedded Studio project
 
 #### a) Download the example Segger Embedded Studio project, or start a new Segger Embedded Studio project
-A guide for that is here: https://drive.google.com/file/d/1mZEiv9JIDn57H9chCPhR2HgvpES6qa8M/view?usp=sharing
+A guide for that is here: https://drive.google.com/open?id=11yvFf8lpF1A96V9AFMaW8Cld3V1snaB1
       
 #### b) Import the NDN-Lite library into your Segger Embedded Studio Project and Compile it
 

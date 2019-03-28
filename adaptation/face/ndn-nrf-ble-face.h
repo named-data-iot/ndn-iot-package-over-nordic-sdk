@@ -15,8 +15,8 @@
 
 #include "ble.h"
 
-#include "../nrf-sdk-ble/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-advertising/nrf-sdk-ble-adv-defs.h"
+#include "../ble-adaptation/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
+#include "../ble-adaptation/nrf-sdk-ble-advertising/nrf-sdk-ble-adv-defs.h"
 
 #ifdef __cplusplus
 extern "C" {

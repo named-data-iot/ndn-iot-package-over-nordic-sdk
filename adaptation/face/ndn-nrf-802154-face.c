@@ -9,13 +9,16 @@
  */
 
 #include "ndn-nrf-802154-face.h"
-#include "../encode/data.h"
-#include "../encode/fragmentation-support.h"
+#include "../../ndn-lite/encode/data.h"
+#include "../../ndn-lite/encode/fragmentation-support.h"
 #include <stdio.h>
 
 static ndn_nrf_802154_face_t nrf_802154_face;
 static frag_buffer[NDN_FRAG_BUFFER_MAX];
 static ndn_frag_assembler_t assembler;
+
+static int
+_nrf_802154_transmission(uint8_t* packet_block, uint32_t packet_size, bool flag);
 
 ndn_nrf_802154_face_t*
 ndn_nrf_802154_face_get_instance()

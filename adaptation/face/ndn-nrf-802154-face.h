@@ -20,8 +20,8 @@
 #ifndef NDN_FACE_NRF_802154_FACE_H
 #define NDN_FACE_NRF_802154_FACE_H
 
-#include "../ndn-nrf-802154-driver.h"
-#include "../forwarder/forwarder.h"
+#include "../802154-adaptation/nrf-802154-driver.h"
+#include "../../ndn-lite/forwarder/forwarder.h"
 
 #ifdef __cplusplus
 extern "C" {

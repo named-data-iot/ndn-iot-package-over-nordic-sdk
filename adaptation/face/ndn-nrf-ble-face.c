@@ -14,11 +14,11 @@
 
 #include "nrf_delay.h"
 
-#include "../nrf-sdk-ble/nrf-sdk-ble-advertising/nrf-sdk-ble-adv.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-consts.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-scanning/nrf-sdk-ble-scan.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-stack/nrf-sdk-ble-stack.h"
+#include "../ble-adaptation/nrf-sdk-ble-advertising/nrf-sdk-ble-adv.h"
+#include "../ble-adaptation/nrf-sdk-ble-consts.h"
+#include "../ble-adaptation/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
+#include "../ble-adaptation/nrf-sdk-ble-scanning/nrf-sdk-ble-scan.h"
+#include "../ble-adaptation/nrf-sdk-ble-stack/nrf-sdk-ble-stack.h"
 
 void ndn_nrf_ble_adv_stopped(void);
 void ndn_nrf_ble_unicast_disconnected(void);

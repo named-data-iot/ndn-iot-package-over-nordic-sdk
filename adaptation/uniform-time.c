@@ -7,12 +7,12 @@
 
 // this function assumes that ndn_lite_over_nrf_sdk_startup was called
 ndn_time_ms_t ndn_time_now_ms(void) {
-  return nrf_system_time_ms;
+  return get_nrf_system_time_ms();
 }
 
 // this function assumes that ndn_lite_over_nrf_sdk_startup was called
 ndn_time_us_t ndn_time_now_us(void) {
-  return nrf_system_time_ms*1000;
+  return get_nrf_system_time_ms()*1000;
 }
 
 void ndn_time_delay(ndn_time_ms_t delay) {

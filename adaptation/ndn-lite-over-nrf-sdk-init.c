@@ -9,16 +9,19 @@
 #include "nrf_crypto.h"
 #include "app_error.h"
 
-uint64_t nrf_system_time_ms = 0;
+static uint64_t nrf_system_time_ms = 0;
 
 APP_TIMER_DEF(m_ndn_lite_timer_id);
+
+uint64_t get_nrf_system_time_ms() {
+  return nrf_system_time_ms;
+}
 
 /**@brief Timeout handler for the ndn lite timer
  */
 static void repeated_timer_handler(void * p_context)
 {
     nrf_system_time_ms++;
-    printf("Current value of nrf_system_time_ms: %d\n", nrf_system_time_ms);
 }
 
 /**@brief Function starting the internal LFCLK oscillator.
@@ -44,8 +47,6 @@ ndn_lite_over_nrf_sdk_startup(void) {
   err_code = nrf_crypto_init();
   APP_ERROR_CHECK(err_code);
 
-  printf("3\n");
-
   register_platform_security_init(ndn_lite_nrf_crypto_init);
   ndn_security_init();
 
@@ -59,6 +60,4 @@ ndn_lite_over_nrf_sdk_startup(void) {
   APP_ERROR_CHECK(err_code);
 
   //  ndn_forwarder_init();
-
-  printf("4\n");
 }

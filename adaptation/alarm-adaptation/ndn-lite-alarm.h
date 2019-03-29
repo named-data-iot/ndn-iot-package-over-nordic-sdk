@@ -26,6 +26,20 @@ extern void ndn_platform_alarm_millis_fire(void* instance);
 
 extern void ndn_platform_alarm_micros_fire(void* instance);
 
+void ndn_alarm_init(void);
+
+void ndn_alarm_deinit(void);
+
+uint64_t ndn_alarm_millis_get_now(void);
+
+uint64_t ndn_alarm_micros_get_now(void);
+
+void ndn_alarm_millis_stop(void);
+
+void ndn_alarm_millis_start(uint32_t start, uint32_t delta);
+
+void ndn_alarm_delay(uint32_t delay);
+
 #ifdef __cplusplus
 } // extern "C"
 #endif

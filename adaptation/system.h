@@ -34,7 +34,6 @@ void ndn_platform_delay_ms(uint32_t delay);
  */
 uint64_t ndn_platform_current_time(void);
 
-
 #ifdef __cplusplus
 } // end of extern "C"
 #endif

@@ -18,7 +18,7 @@
 
 #define TEMP_BUF_LENGTH 500
 
-static struct sign_on_basic_client_t m_sign_on_basic_client;
+static sign_on_basic_client_t m_sign_on_basic_client;
 static sign_on_basic_client_nrf_sdk_ble_t sign_on_basic_client_nrf_sdk_ble;
 void (*m_on_sign_on_completed)(int result_code); //**< Callback for sign on completion set by sign_on_basic_client_ble_init_result. */
 
@@ -27,7 +27,7 @@ get_sign_on_basic_client_nrf_sdk_ble_instance() {
   return &sign_on_basic_client_nrf_sdk_ble;
 }
 
-void m_on_transport_connected(uint32_t conn_handle) {
+void m_on_transport_connected(uint16_t conn_handle) {
 
 }
 
@@ -35,7 +35,7 @@ void m_on_transport_disconnected() {
 
 }
 
-void m_on_transport_hvn_tx_complete(uint32_t conn_handle) {
+void m_on_transport_hvn_tx_complete(uint16_t conn_handle) {
 
 }
 
@@ -43,7 +43,7 @@ void m_on_transport_adv_stopped() {
 
 }
 
-void m_on_transport_mtu_rqst(uint32_t conn_handle) {
+void m_on_transport_mtu_rqst(uint16_t conn_handle) {
   // after the central is done negotiating its MTU with us, we send our bootstrapping request
 
   if (m_sign_on_basic_client.status == SIGN_ON_BASIC_CLIENT_GENERATED_FINISH_MESSAGE) {
@@ -69,7 +69,7 @@ void m_on_transport_mtu_rqst(uint32_t conn_handle) {
   }
 }
 
-void m_on_recvd_data_callback(const uint8_t *payload, uint32_t payload_len) {
+void m_on_recvd_data_callback(const uint8_t *payload, uint16_t payload_len) {
 
   if (m_sign_on_basic_client.status == SIGN_ON_BASIC_CLIENT_GENERATED_FINISH_MESSAGE) {
     return;

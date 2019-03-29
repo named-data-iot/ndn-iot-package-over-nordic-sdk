@@ -245,13 +245,13 @@ void ndn_nrf_ble_adv_stopped(void) {
 void ndn_nrf_ble_recvd_data_ext_adv(const uint8_t *p_data, uint8_t length) {
   printf("RX frame  (ext adv), payload len %u: \n", (unsigned)length);
 
-  ndn_face_receive(&nrf_ble_face.intf, p_data + NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH,
+  ndn_forwarder_receive(&nrf_ble_face.intf, p_data + NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH,
       length - NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH);
 }
 
 void ndn_nrf_ble_recvd_data_unicast(const uint8_t *p_data, uint16_t length) {
   printf("RX frame (unicast), payload len %u: \n", (unsigned)length);
 
-  ndn_face_receive(&nrf_ble_face.intf, p_data,
+  ndn_forwarder_receive(&nrf_ble_face.intf, p_data,
       (uint8_t)length);
 }

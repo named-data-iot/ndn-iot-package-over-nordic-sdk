@@ -59,5 +59,5 @@ ndn_lite_over_nrf_sdk_startup(void) {
   err_code = app_timer_start(m_ndn_lite_timer_id, APP_TIMER_TICKS(1), NULL);
   APP_ERROR_CHECK(err_code);
 
-  //  ndn_forwarder_init();
+  ndn_forwarder_init();
 }

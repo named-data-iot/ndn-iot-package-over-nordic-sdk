@@ -51,13 +51,12 @@ int ndn_nrf_ble_face_up(struct ndn_face_intf *self) {
 int ndn_nrf_ble_send_unicast_packet(const char *msg);
 int ndn_nrf_ble_send_extended_adv_packet(const char *msg);
 
-int ndn_nrf_ble_face_send(struct ndn_face_intf *self, const ndn_name_t *name,
+int ndn_nrf_ble_face_send(struct ndn_face_intf *self, 
     const uint8_t *packet, uint32_t size) {
 
   printf("ndn_nrf_ble_face_send got called. \n");
 
   (void)self;
-  (void)name;
   uint8_t packet_block[NDN_NRF_BLE_MAX_PAYLOAD_SIZE];
 
   if (current_packet_block_to_send_p != NULL) {
@@ -69,7 +68,7 @@ int ndn_nrf_ble_face_send(struct ndn_face_intf *self, const ndn_name_t *name,
   // init payload
   if (!(size <= NDN_NRF_BLE_MAX_PAYLOAD_SIZE)) {
     // TBD
-    printf("ndn_nrf_ble_face_send failed; size of packet was larger than max payload size.\n");
+    printf("ndn_nrf_ble_face_send failed; size of packet (%d) was larger than max payload size.\n", (int) size);
     return -1;
   }
 

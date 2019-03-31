@@ -47,3 +47,16 @@ You can find the Android example application and instructions for installing / u
 You can find the nRF52840 example application and instructions for installing / using it here:
     https://github.com/gujianxiao/ndn-lite-application-for-nRF52840-BLE_version
 
+## IMPORTANT NOTES
+
+Please note the following things when building your application using the nRF5 SDK with ndn-lite:
+
+### YOU MUST CALL THE ndn_lite_over_nrf_sdk_startup() FUNCTION AT THE BEGINNING OF YOUR MAIN FUNCTION, JUST LIKE THE EXAMPLE
+
+This will initialize all things needed for the ndn-lite library over nRF5 SDK to function properly.
+
+### DO NOT REINITIALIZE THE APP_TIMER LIBRARY
+
+The ndn-lite library uses the nRF5 SDK's app_timer library (i.e., a multi-timer abstraction built on top of RTC1) in order to keep system time. DO NOT REINITIALIZE THIS app_timer LIBRARY WITH A CALL TO app_timer_init(). THIS WILL STOP THE NDN-LITE'S SYSTEM TIME IMPLEMENTATION FROM WORKING PROPERLY.
+
+You can see for yourself that the app_timer library is initialized in the ndn_lite_over_nrf_sdk_startup() function.

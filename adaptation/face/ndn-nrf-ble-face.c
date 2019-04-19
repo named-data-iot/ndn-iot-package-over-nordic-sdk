@@ -14,11 +14,11 @@
 
 #include "nrf_delay.h"
 
-#include "../nrf-sdk-ble/nrf-sdk-ble-advertising/nrf-sdk-ble-adv.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-consts.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-scanning/nrf-sdk-ble-scan.h"
-#include "../nrf-sdk-ble/nrf-sdk-ble-stack/nrf-sdk-ble-stack.h"
+#include "../ble-adaptation/nrf-sdk-ble-advertising/nrf-sdk-ble-adv.h"
+#include "../ble-adaptation/nrf-sdk-ble-consts.h"
+#include "../ble-adaptation/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
+#include "../ble-adaptation/nrf-sdk-ble-scanning/nrf-sdk-ble-scan.h"
+#include "../ble-adaptation/nrf-sdk-ble-stack/nrf-sdk-ble-stack.h"
 
 void ndn_nrf_ble_adv_stopped(void);
 void ndn_nrf_ble_unicast_disconnected(void);
@@ -51,13 +51,12 @@ int ndn_nrf_ble_face_up(struct ndn_face_intf *self) {
 int ndn_nrf_ble_send_unicast_packet(const char *msg);
 int ndn_nrf_ble_send_extended_adv_packet(const char *msg);
 
-int ndn_nrf_ble_face_send(struct ndn_face_intf *self, const ndn_name_t *name,
+int ndn_nrf_ble_face_send(struct ndn_face_intf *self, 
     const uint8_t *packet, uint32_t size) {
 
   printf("ndn_nrf_ble_face_send got called. \n");
 
   (void)self;
-  (void)name;
   uint8_t packet_block[NDN_NRF_BLE_MAX_PAYLOAD_SIZE];
 
   if (current_packet_block_to_send_p != NULL) {
@@ -69,7 +68,7 @@ int ndn_nrf_ble_face_send(struct ndn_face_intf *self, const ndn_name_t *name,
   // init payload
   if (!(size <= NDN_NRF_BLE_MAX_PAYLOAD_SIZE)) {
     // TBD
-    printf("ndn_nrf_ble_face_send failed; size of packet was larger than max payload size.\n");
+    printf("ndn_nrf_ble_face_send failed; size of packet (%d) was larger than max payload size.\n", (int) size);
     return -1;
   }
 
@@ -245,13 +244,13 @@ void ndn_nrf_ble_adv_stopped(void) {
 void ndn_nrf_ble_recvd_data_ext_adv(const uint8_t *p_data, uint8_t length) {
   printf("RX frame  (ext adv), payload len %u: \n", (unsigned)length);
 
-  ndn_face_receive(&nrf_ble_face.intf, p_data + NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH,
+  ndn_forwarder_receive(&nrf_ble_face.intf, p_data + NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH,
       length - NDN_NRF_BLE_ADV_PAYLOAD_HEADER_LENGTH);
 }
 
 void ndn_nrf_ble_recvd_data_unicast(const uint8_t *p_data, uint16_t length) {
   printf("RX frame (unicast), payload len %u: \n", (unsigned)length);
 
-  ndn_face_receive(&nrf_ble_face.intf, p_data,
+  ndn_forwarder_receive(&nrf_ble_face.intf, p_data,
       (uint8_t)length);
 }

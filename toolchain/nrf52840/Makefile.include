@@ -1,0 +1,190 @@
+PROJECT_NAME     := template_pca10056
+TARGETS          := nrf52840_xxaa
+OUTPUT_DIRECTORY := build
+
+SDK_ROOT := $(THIRD_PARTY_PATH)/nordic-semiconductor
+
+PROJ_DIR := $(CURDIR)
+
+$(OUTPUT_DIRECTORY)/nrf52840_xxaa.out: \
+  LINKER_SCRIPT  := $(TOOLCHAIN_PATH)/$(BOARD)/template_gcc_nrf52.ld
+
+# Source files common to all targets
+SRC_FILES += \
+  $(SDK_ROOT)/nrfx/mdk/gcc_startup_nrf52840.S \
+  $(SDK_ROOT)/drivers/clock/nrf_drv_clock.c \
+  $(SDK_ROOT)/drivers/power/nrf_drv_power.c \
+  $(SDK_ROOT)/drivers/usbd/nrf_drv_usbd.c \
+  $(SDK_ROOT)/nrfx/hal/nrf_nvmc.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_clock.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_comp.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_gpiote.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_i2s.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_lpcomp.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_pdm.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_power.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_ppi.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_pwm.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_qdec.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_qspi.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_rng.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_rtc.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_saadc.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_spi.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_spim.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_spis.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_swi.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_timer.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_twi.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_twim.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_twis.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_uart.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_uarte.c \
+  $(SDK_ROOT)/nrfx/drivers/src/nrfx_wdt.c \
+  $(SDK_ROOT)/libraries/usbd/app_usbd.c \
+  $(SDK_ROOT)/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.c \
+  $(SDK_ROOT)/libraries/usbd/app_usbd_core.c \
+  $(SDK_ROOT)/libraries/usbd/app_usbd_string_desc.c \
+  $(SDK_ROOT)/libraries/atomic_fifo/nrf_atfifo.c \
+  $(SDK_ROOT)/libraries/atomic/nrf_atomic.c \
+	$(SDK_ROOT)/libraries/utf_converter/utf.c \
+  $(SDK_ROOT)/nrfx/mdk/system_nrf52840.c \
+	$(SDK_ROOT)/SEGGER_RTT_V640/Syscalls/SEGGER_RTT_Syscalls_GCC.c \
+	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/SEGGER_RTT_printf.c \
+	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/SEGGER_RTT.c \
+	$(SDK_ROOT)/dependencies/app_util_platform.c \
+	$(ADAPTATION_PATH)/alarm-adaptation/ndn-lite-alarm.c \
+  $(ADAPTATION_PATH)/flash-storage/flash.c \
+	$(ADAPTATION_PATH)/alarm-adaptation/system.c \
+	$(PROJ_DIR)/main.c \
+
+# Include folders common to all targets
+INC_FOLDERS += \
+  $(PROJ_DIR) \
+	$(SDK_ROOT)/libraries/app_error \
+	$(SDK_ROOT)/libraries/delay \
+  $(SDK_ROOT)/libraries/usbd/class/cdc/acm \
+  $(SDK_ROOT)/libraries/usbd/class/cdc \
+  $(SDK_ROOT)/nrfx/hal \
+  $(SDK_ROOT)/libraries/utf_converter \
+  $(SDK_ROOT)/nrfx/drivers/include \
+  $(SDK_ROOT) \
+	$(SDK_ROOT)/drivers/clock \
+	$(SDK_ROOT)/drivers/radio \
+	$(SDK_ROOT)/drivers/radio/platform/lp_timer \
+	$(SDK_ROOT)/cmsis \
+	$(SDK_ROOT)/dependencies \
+  $(SDK_ROOT)/libraries/nrf_cc310/include \
+  $(SDK_ROOT)/nrfx \
+  $(SDK_ROOT)/nrfx/mdk \
+  $(SDK_ROOT)/libraries/atomic_fifo \
+  $(SDK_ROOT)/libraries/atomic \
+  $(SDK_ROOT)/libraries/usbd \
+	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/ \
+	$(SDK_ROOT)/SEGGER_RTT_V640/Syscalls \
+	$(ADAPTATION_PATH) \
+  $(SRC_PATH) \
+
+# Libraries common to all targets
+LIB_FILES += \
+  $(SDK_ROOT)/libraries/nrf_cc310/lib/libnrf_cc310_0.9.10.a \
+
+# Optimization flags
+OPT = -O3 -g3
+# Uncomment the line below to enable link time optimization
+#OPT += -flto
+
+# C flags common to all targets
+CFLAGS += $(OPT)
+CFLAGS += -DBOARD_PCA10056
+CFLAGS += -DCONFIG_GPIO_AS_PINRESET
+CFLAGS += -DFLOAT_ABI_HARD
+CFLAGS += -DMBEDTLS_CONFIG_FILE=\"nrf_crypto_mbedtls_config.h\"
+CFLAGS += -DNRF52840_XXAA
+CFLAGS += -DNRF_CRYPTO_MAX_INSTANCE_COUNT=1
+CFLAGS += -DSWI_DISABLE0
+CFLAGS += -DuECC_ENABLE_VLI_API=0
+CFLAGS += -DuECC_OPTIMIZATION_LEVEL=3
+CFLAGS += -DuECC_SQUARE_FUNC=0
+CFLAGS += -DuECC_SUPPORT_COMPRESSED_POINT=0
+CFLAGS += -DuECC_VLI_NATIVE_LITTLE_ENDIAN=1
+CFLAGS += -mcpu=cortex-m4
+CFLAGS += -mthumb -mabi=aapcs
+CFLAGS += -Wall -Werror
+CFLAGS += -Wno-unused-function
+CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+# keep every function in a separate section, this allows linker to discard unused ones
+CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
+CFLAGS += -fno-builtin -fshort-enums
+
+# C++ flags common to all targets
+CXXFLAGS += $(OPT)
+
+# Assembler flags common to all targets
+ASMFLAGS += -g3
+ASMFLAGS += -mcpu=cortex-m4
+ASMFLAGS += -mthumb -mabi=aapcs
+ASMFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+ASMFLAGS += -DBOARD_PCA10056
+ASMFLAGS += -DCONFIG_GPIO_AS_PINRESET
+ASMFLAGS += -DFLOAT_ABI_HARD
+ASMFLAGS += -DNRF52840_XXAA
+ASMFLAGS += -DNRF_CRYPTO_MAX_INSTANCE_COUNT=1
+ASMFLAGS += -DSWI_DISABLE0
+ASMFLAGS += -DuECC_ENABLE_VLI_API=0
+ASMFLAGS += -DuECC_OPTIMIZATION_LEVEL=3
+ASMFLAGS += -DuECC_SQUARE_FUNC=0
+ASMFLAGS += -DuECC_SUPPORT_COMPRESSED_POINT=0
+ASMFLAGS += -DuECC_VLI_NATIVE_LITTLE_ENDIAN=1
+
+# Linker flags
+LDFLAGS += $(OPT)
+LDFLAGS += -mthumb -mabi=aapcs -L$(SDK_ROOT)/nrfx/mdk -T$(LINKER_SCRIPT)
+LDFLAGS += -mcpu=cortex-m4
+LDFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+# let linker dump unused sections
+LDFLAGS += -Wl,--gc-sections
+# use newlib in nano version
+LDFLAGS += --specs=nano.specs
+
+nrf52840_xxaa: CFLAGS += -D__HEAP_SIZE=8192
+nrf52840_xxaa: CFLAGS += -D__STACK_SIZE=8192
+nrf52840_xxaa: ASMFLAGS += -D__HEAP_SIZE=8192
+nrf52840_xxaa: ASMFLAGS += -D__STACK_SIZE=8192
+
+# Add standard libraries at the very end of the linker input, after all objects
+# that may need symbols provided by these libraries.
+LIB_FILES += -lc -lnosys -lm
+
+
+.PHONY: default help
+
+# Default target - first one defined
+default: nrf52840_xxaa
+
+# Print all targets that can be built
+help:
+	@echo following targets are available:
+	@echo		nrf52840_xxaa
+	@echo		sdk_config - starting external tool for editing sdk_config.h
+	@echo		flash      - flashing binary
+
+TEMPLATE_PATH := $(TOOLCHAIN_PATH)
+
+
+include $(TEMPLATE_PATH)/Makefile.common
+include $(TEMPLATE_PATH)/nrf52840/Makefile.profile
+
+$(foreach target, $(TARGETS), $(call define_target, $(target)))
+
+.PHONY: flash sdk_config
+
+# Flash the program
+flash: default
+	@echo Flashing: $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
+	sh $(THIRD_PARTY_PATH)/jlink/jlink.sh flash $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
+
+SDK_CONFIG_FILE := $(SDK_ROOT)/dependencies/sdk_config.h
+CMSIS_CONFIG_TOOL := $(SDK_ROOT)/cmsis/CMSIS_Configuration_Wizard.jar
+sdk_config:
+	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)

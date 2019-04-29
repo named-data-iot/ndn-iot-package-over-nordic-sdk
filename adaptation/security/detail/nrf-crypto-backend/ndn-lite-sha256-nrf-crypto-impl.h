@@ -22,7 +22,7 @@
 #include "nrf_log_default_backends.h"
 //**************************************//
 
-int
-ndn_lite_nrf_crypto_gen_sha256_hash(const uint8_t *payload, uint16_t payload_len, uint8_t *output);
+//int
+//ndn_lite_nrf_crypto_gen_sha256_hash(const uint8_t *payload, uint16_t payload_len, uint8_t *output);
 
 #endif // SHA_256_NRF_CRYPTO_IMPL_H

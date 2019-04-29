@@ -134,6 +134,12 @@ ndn_nrf_ble_face_construct(uint16_t face_id) {
   observer.on_adv_stopped = ndn_nrf_ble_legacy_adv_stopped;
   nrf_sdk_ble_ndn_lite_ble_unicast_transport_add_observer(observer);
 
+  int ret_val = -1;
+
+  nrf_ble_face.intf.face_id = NDN_INVALID_ID;
+  ret_val = ndn_forwarder_register_face(&nrf_ble_face.intf);
+  if(ret_val != NDN_SUCCESS) return NULL;
+
   nrf_ble_face.intf.up = ndn_nrf_ble_face_up;
   nrf_ble_face.intf.send = ndn_nrf_ble_face_send;
   nrf_ble_face.intf.down = ndn_nrf_ble_face_down;
@@ -143,6 +149,8 @@ ndn_nrf_ble_face_construct(uint16_t face_id) {
   nrf_ble_face.intf.type = NDN_FACE_TYPE_NET;
 
   return &nrf_ble_face;
+
+
 }
 
 //================================================================

@@ -11,7 +11,7 @@
 #ifndef SIGN_ON_BASIC_CLIENT_NRF_SDK_BLE_H
 #define SIGN_ON_BASIC_CLIENT_NRF_SDK_BLE_H
 
-#include "../../../adaptation/ble-adaptation/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
+#include "../../adaptation/ble-adaptation/nrf-sdk-ble-ndn-lite-ble-unicast-transport/nrf-sdk-ble-ndn-lite-ble-unicast-transport.h"
 
 #include "../../../ndn-lite/app-support/secure-sign-on/sign-on-basic-client.h"
 #include "../../../ndn-lite/app-support/secure-sign-on/sign-on-basic-client-consts.h"

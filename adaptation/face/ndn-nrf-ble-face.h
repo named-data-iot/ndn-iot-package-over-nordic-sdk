@@ -49,7 +49,7 @@ ndn_nrf_ble_face_t*
 ndn_nrf_init_ble_get_face_instance();
 
 ndn_nrf_ble_face_t*
-ndn_nrf_ble_face_construct(uint16_t face_id);
+ndn_nrf_ble_face_construct();
 
 #ifdef __cplusplus
 }
